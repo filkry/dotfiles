@@ -1,8 +1,26 @@
+# returns 0 if the path contains a substring specific to a given OS
+matches_os() {
+  if [[ $1 =~ .*osx.* ]]; then
+    if [[ "$OSTYPE" =~ ^darwin ]]; then
+      return 1
+    else
+      return 0
+    fi
+  elif [[ $1 =~ .*arch.* ]]; then
+    if [[ "$(cat /etc/issue 2> /dev/null)" =~ .*Arch.* ]]; then
+      return 1
+    else
+      return 0
+    fi
+  fi
+  return 1
+}
+
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
+export PROJECTS=~/code
 
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
@@ -18,13 +36,21 @@ config_files=($ZSH/**/*.zsh)
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
 do
-  source $file
+  if [[ matches_os $file ]]; then
+    source $file
+  else
+    echo "skipped $file"
+  fi
 done
 
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
-  source $file
+  if [[ matches_os $file ]]; then
+    source $file
+  else
+    echo "skipped $file"
+  fi
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
@@ -34,7 +60,11 @@ compinit
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
 do
-  source $file
+  if [[ matches_os $file ]]; then
+    source $file
+  else
+    echo "skipped $file"
+  fi
 done
 
 unset config_files

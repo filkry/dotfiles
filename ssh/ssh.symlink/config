@@ -1,0 +1,15 @@
+Host nfs
+    HostName ssh.phx.nearlyfreespeech.net
+    User filkr_filkr-home
+
+Host blog
+    HostName ssh.phx.nearlyfreespeech.net 
+    User filkr_filblog
+
+Host lab
+    HostName scspc378.cs.uwaterloo.ca
+    User fil
+
+Host pi
+    HostName filkr.mooo.com
+    User pi

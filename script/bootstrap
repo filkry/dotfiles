@@ -56,6 +56,23 @@ install_dotfiles () {
 
   for source in `find $DOTFILES_ROOT -maxdepth 2 -name \*.symlink`
   do
+    # My addition: skip folders for the wrong OS
+    if [[ $source =~ .*osx.* ]]
+      if [[ "$OSTYPE" =~ ^darwin ]]
+      then
+      else
+        success "skipped $source"
+        continue
+      fi
+    elif [[ $source =~ .*arch.* ]]
+      if [[ "$(cat /etc/issue 2> /dev/null)" =~ .*Arch.* ]]
+      then
+      else
+        success "skipped $source"
+        continue
+      fi
+    fi 
+
     dest="$HOME/.`basename \"${source%.*}\"`"
 
     if [ -f $dest ] || [ -d $dest ]
@@ -117,16 +134,13 @@ install_dotfiles () {
 setup_gitconfig
 install_dotfiles
 
-# If we are on a mac, lets install and setup homebrew
-if [ "$(uname -s)" == "Darwin" ]
+# install dependencies
+info "installing dependencies"
+if . bin/dot > /tmp/dotfiles-dot 2>&1
 then
-  info "installing dependencies"
-  if . bin/dot > /tmp/dotfiles-dot 2>&1
-  then
-    success "dependencies installed"
-  else
-    fail "error installing dependencies"
-  fi
+  success "dependencies installed"
+else
+  fail "error installing dependencies"
 fi
 
 echo ''
