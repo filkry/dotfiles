@@ -58,16 +58,14 @@ install_dotfiles () {
   do
     # My addition: skip folders for the wrong OS
     if [[ $source =~ .*osx.* ]]
-      if [[ "$OSTYPE" =~ ^darwin ]]
-      then
-      else
+    then
+      if [[ ! "$OSTYPE" =~ ^darwin ]]; then
         success "skipped $source"
         continue
       fi
     elif [[ $source =~ .*arch.* ]]
-      if [[ "$(cat /etc/issue 2> /dev/null)" =~ .*Arch.* ]]
-      then
-      else
+    then
+      if [[ ! "$(cat /etc/issue 2> /dev/null)" =~ .*Arch.* ]]; then
         success "skipped $source"
         continue
       fi

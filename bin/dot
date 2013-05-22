@@ -13,6 +13,6 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 	brew update
 	# Install homebrew packages
 	# $ZSH/homebrew/install.sh 2>&1
-elif [[ "$(cat /etc/issue 2> /dev/null)" =~ Arch Linux ]]; then
+elif [[ "$(cat /etc/issue 2> /dev/null)" =~ .*Arch.* ]]; then
 	$ZSH/arch/install.sh
 fi

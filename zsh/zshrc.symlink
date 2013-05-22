@@ -1,19 +1,19 @@
-# returns 0 if the path contains a substring specific to a given OS
+# returns 1 if the path contains a substring specific to a given OS
 matches_os() {
   if [[ $1 =~ .*osx.* ]]; then
     if [[ "$OSTYPE" =~ ^darwin ]]; then
-      return 1
+      return 0 
     else
-      return 0
+      return 1
     fi
   elif [[ $1 =~ .*arch.* ]]; then
     if [[ "$(cat /etc/issue 2> /dev/null)" =~ .*Arch.* ]]; then
-      return 1
-    else
       return 0
+    else
+      return 1
     fi
   fi
-  return 1
+  return 0
 }
 
 # shortcut to this dotfiles path is $ZSH
@@ -36,7 +36,7 @@ config_files=($ZSH/**/*.zsh)
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
 do
-  if [[ matches_os $file ]]; then
+  if matches_os $file; then
     source $file
   else
     echo "skipped $file"
@@ -46,7 +46,7 @@ done
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
-  if [[ matches_os $file ]]; then
+  if matches_os $file; then
     source $file
   else
     echo "skipped $file"
@@ -60,7 +60,7 @@ compinit
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
 do
-  if [[ matches_os $file ]]; then
+  if matches_os $file; then
     source $file
   else
     echo "skipped $file"
