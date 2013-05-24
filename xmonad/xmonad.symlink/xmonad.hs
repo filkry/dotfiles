@@ -1,5 +1,6 @@
 import XMonad
 import XMonad.Actions.SwapWorkspaces
+import XMonad.Actions.PhysicalScreens
 --import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
@@ -36,6 +37,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Rotate through layout algms
     , ((modm,               xK_space),  sendMessage NextLayout)
+
+    -- Move focus to next display
+    , ((modm,               xK_r), onPrevNeighbour W.view)
+    -- Move focus to next display
+    , ((modm,               xK_f), onNextNeighbour W.view)
 
     -- Move focus to next window
     , ((modm,               xK_j),      windows W.focusDown)      
