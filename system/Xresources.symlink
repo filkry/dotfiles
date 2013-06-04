@@ -69,9 +69,6 @@
 *color14:                 S_base1
 *color15:                 S_base3
 
-xterm*faceName:           Ubuntu Mono:pixelsize=16
-
-!URxvt.font:               xft:Ubuntu Mono:pixelsize=16,style=regular
 URxvt.font:               xft:Terminus:pixelsize=16
 URxvt.scrollBar:          false
 URxvt.saveLines:          12000
