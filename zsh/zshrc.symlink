@@ -39,7 +39,7 @@ do
   if matches_os $file; then
     source $file
   else
-    echo "skipped $file"
+    # echo "skipped $file"
   fi
 done
 
@@ -49,7 +49,7 @@ do
   if matches_os $file; then
     source $file
   else
-    echo "skipped $file"
+    # echo "skipped $file"
   fi
 done
 
@@ -63,7 +63,7 @@ do
   if matches_os $file; then
     source $file
   else
-    echo "skipped $file"
+    # echo "skipped $file"
   fi
 done
 
