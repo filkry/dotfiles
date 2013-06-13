@@ -9,10 +9,8 @@
 if [[ "$OSTYPE" =~ ^darwin ]]; then
 	# Set OS X defaults
 	$ZSH/osx/set-defaults.sh
-	# Upgrade homebrew
-	brew update
 	# Install homebrew packages
-	# $ZSH/homebrew/install.sh 2>&1
+	$ZSH/osx/install.sh
 elif [[ "$(cat /etc/issue 2> /dev/null)" =~ .*Arch.* ]]; then
 	$ZSH/arch/install.sh
 fi
