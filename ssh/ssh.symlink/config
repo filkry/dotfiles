@@ -13,3 +13,7 @@ Host lab
 Host pi
     HostName filkr.mooo.com
     User pi
+
+Host capn
+    HostName capn.cs.uwaterloo.ca
+    User frkrynic
