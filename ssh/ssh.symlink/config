@@ -17,3 +17,7 @@ Host pi
 Host capn
     HostName capn.cs.uwaterloo.ca
     User frkrynic
+
+Host upgrad
+    HostName linux.student.cs.uwaterloo.ca
+    User frkrynic
