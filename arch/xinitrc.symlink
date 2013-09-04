@@ -10,4 +10,6 @@ fi
 
 trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --widthtype request --height 12 &
 
+volumeicon &
+
 exec xmonad
