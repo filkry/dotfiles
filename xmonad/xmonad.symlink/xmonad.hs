@@ -1,20 +1,17 @@
 import XMonad
 import XMonad.Actions.SwapWorkspaces
 import XMonad.Actions.PhysicalScreens
---import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
---import XMonad.Hooks.FadeInactive
 import XMonad.Layout.NoBorders
 import System.IO
 import Data.Monoid
 import System.Exit
-import XMonad.Config.Xfce
 import XMonad.Hooks.ManageHelpers
---import XMonad.Hooks.SetWMName
 import XMonad.Config.Desktop (desktopLayoutModifiers)
 import XMonad.Layout.Fullscreen
+import XMonad.Hooks.DynamicLog
  
 import qualified Data.Map        as M
 import qualified XMonad.StackSet as W
@@ -23,7 +20,12 @@ myModMask       = mod4Mask
 
 myWorkspaceKeys = [xK_q, xK_w, xK_e, xK_a, xK_s, xK_d, xK_z, xK_x, xK_c]
 
-myLayouts = noBorders $ fullscreenFull $ layoutHook xfceConfig
+myLayouts = avoidStruts $ noBorders $ fullscreenFull $ layoutHook defaultConfig
+
+myLogHook xmproc = dynamicLogWithPP xmobarPP
+                    { ppOutput = hPutStrLn xmproc
+                    , ppTitle = xmobarColor "green" "" . shorten 100
+                    }
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
@@ -77,13 +79,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --[((myModMask .|. controlMask, k), windows $ swapWithCurrent i)
     --   | (i, k) <- zip (XMonad.workspaces conf) myWorkspaceKeys]
 
-conf = xfceConfig {
+conf = defaultConfig {
             layoutHook = myLayouts,
             modMask = myModMask,
             keys = myKeys,
             terminal = "urxvt",
             manageHook = composeAll
-                [ manageHook xfceConfig
+                [ manageHook defaultConfig
+                , manageDocks
                 , fullscreenManageHook
                 , className =? "Steam"           --> doFloat
                 , className =? "Gimp"            --> doFloat
@@ -92,6 +95,8 @@ conf = xfceConfig {
         } 
 
 main = do
+    xmproc <- spawnPipe "xmobar"
     xmonad conf
         { startupHook = startupHook conf
+        , logHook = myLogHook xmproc
         }

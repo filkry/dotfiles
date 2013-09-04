@@ -1,0 +1,10 @@
+#!/bin/sh
+
+xsetroot -cursor_name left_ptr
+setxkbmap -option caps:super
+
+sh /home/fil/.screenlayout/main.sh
+
+trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --widthtype request --height 12 &
+
+exec xmonad
