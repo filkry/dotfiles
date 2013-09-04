@@ -3,7 +3,10 @@
 xsetroot -cursor_name left_ptr
 setxkbmap -option caps:super
 
-sh /home/fil/.screenlayout/main.sh
+if [ -e /home/fil/.screenlayout/main.sh ]
+then
+    sh /home/fil/.screenlayout/main.sh
+fi
 
 trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --widthtype request --height 12 &
 
