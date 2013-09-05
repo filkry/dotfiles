@@ -8,10 +8,12 @@ then
     sh /home/fil/.screenlayout/main.sh
 fi
 
-trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --widthtype request --height 12 --tint 0x000000 &
+trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --widthtype request --height 12 --tint 0x000000 --transparent true &
 
 volumeicon &
 
 dropboxd &
+
+xrdb -merge ~/.Xresources
 
 exec xmonad
