@@ -10,6 +10,7 @@ fi
 
 trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --widthtype request --height 12 --tint 0x000000 --transparent true &
 
+pulseaudio --start
 pasystray &
 
 dropboxd &
