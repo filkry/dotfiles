@@ -35,9 +35,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_y),      spawn "dmenu_run")
 
     --volume control
-    , ((0,  0x1008FF11),                spawn "/usr/bin/vol_down")
-    , ((0,  0x1008FF12),                spawn "/usr/bin/mute_toggle")
-    , ((0,  0x1008FF13),                spawn "/usr/bin/vol_up")
+    , ((0,  0x1008FF11),                spawn "/usr/bin/pulseaudio-ctl down")
+    , ((0,  0x1008FF12),                spawn "/usr/bin/pulseaudio-ctl mute")
+    , ((0,  0x1008FF13),                spawn "/usr/bin/pulseaudio-ctl up")
 
     -- close focussed window
     , ((modm .|. shiftMask, xK_k),      kill)
