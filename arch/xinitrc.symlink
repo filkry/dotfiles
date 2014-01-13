@@ -17,4 +17,6 @@ dropboxd &
 
 xrdb -merge ~/.Xresources
 
+udiskie --tray &
+
 exec xmonad

@@ -1,5 +1,5 @@
 sudo pacman -Sy
-sudo pacman -S --noconfirm --needed base base-devel xorg-server xorg-server-utils xorg-xinit xmonad xmonad-contrib chromium firefox dmenu wget vim rxvt-unicode unzip terminus-font ruby encfs openssh qt4 evince rsync xmobar trayer alsa-utils xmobar pulseaudio pavucontrol
+sudo pacman -S --noconfirm --needed base base-devel xorg-server xorg-server-utils xorg-xinit xmonad xmonad-contrib chromium firefox dmenu wget vim rxvt-unicode unzip terminus-font ruby encfs openssh qt4 evince rsync xmobar trayer alsa-utils xmobar pulseaudio pavucontrol udiskie
 
 sudo pacman -S --noconfirm --needed pulseaudio pavucontrol
 
