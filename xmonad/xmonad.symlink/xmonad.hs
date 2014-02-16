@@ -25,7 +25,7 @@ myLayouts = spacing 8 $ avoidStruts $ fullscreenFull $ layoutHook defaultConfig
 
 myLogHook xmproc = dynamicLogWithPP xmobarPP
                     { ppOutput = hPutStrLn xmproc
-                    , ppTitle = xmobarColor "green" "" . shorten 100
+                    , ppTitle = xmobarColor "orange" "" . shorten 100
                     }
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
