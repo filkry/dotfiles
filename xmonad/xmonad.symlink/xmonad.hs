@@ -21,7 +21,7 @@ myModMask       = mod4Mask
 
 myWorkspaceKeys = [xK_q, xK_w, xK_e, xK_a, xK_s, xK_d, xK_z, xK_x, xK_c]
 
-myLayouts = spacing 10 $ avoidStruts $ noBorders $ fullscreenFull $ layoutHook defaultConfig
+myLayouts = spacing 8 $ avoidStruts $ fullscreenFull $ layoutHook defaultConfig
 
 myLogHook xmproc = dynamicLogWithPP xmobarPP
                     { ppOutput = hPutStrLn xmproc
@@ -89,6 +89,8 @@ conf = defaultConfig {
             layoutHook = myLayouts,
             modMask = myModMask,
             keys = myKeys,
+            normalBorderColor = "#000000",
+            focusedBorderColor = "#888888",
             terminal = "urxvt",
             manageHook = composeAll
                 [ manageHook defaultConfig

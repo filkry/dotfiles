@@ -8,7 +8,7 @@ then
     sh /home/fil/.screenlayout/main.sh
 fi
 
-trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --widthtype request --height 12 --tint 0x000000 --transparent true &
+#trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --widthtype request --height 12 --tint 0x000000 --transparent true &
 
 pulseaudio --start
 pasystray &
@@ -18,5 +18,9 @@ dropboxd &
 xrdb -merge ~/.Xresources
 
 udiskie --tray &
+
+xcompmgr -n &
+
+feh --bg-fill ~/Dropbox/wallpaper/close_fields-wide.jpg
 
 exec xmonad

@@ -18,6 +18,7 @@
 ! Dark
 
 #define S_base03        #002b36
+#define S_base03trans   [98]#002b36
 #define S_base02        #073642
 #define S_base01        #586e75
 #define S_base00        #657b83
@@ -44,9 +45,11 @@
 !
 ! URxvt*background:            S_base03
 
-*background:              S_base03
+!*background:              S_base03
+*background:              S_base03trans
+URxvt.depth:              32
 *foreground:              S_base0
-*fading:                  30
+!*fading:                  30
 *fadeColor:               S_base03
 *cursorColor:             S_base1
 *pointerColorBackground:  S_base01
@@ -72,6 +75,3 @@
 URxvt.font:               xft:Terminus:pixelsize=16
 URxvt.scrollBar:          false
 xRxvt.saveLines:          12000
-
-urxvt*transparent: true
-urxvt*shading: 10
