@@ -71,4 +71,7 @@
 
 URxvt.font:               xft:Terminus:pixelsize=16
 URxvt.scrollBar:          false
-URxvt.saveLines:          12000
+xRxvt.saveLines:          12000
+
+urxvt*transparent: true
+urxvt*shading: 10

@@ -5,6 +5,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Layout.NoBorders
+import XMonad.Layout.Spacing
 import System.IO
 import Data.Monoid
 import System.Exit
@@ -20,7 +21,7 @@ myModMask       = mod4Mask
 
 myWorkspaceKeys = [xK_q, xK_w, xK_e, xK_a, xK_s, xK_d, xK_z, xK_x, xK_c]
 
-myLayouts = avoidStruts $ noBorders $ fullscreenFull $ layoutHook defaultConfig
+myLayouts = spacing 10 $ avoidStruts $ noBorders $ fullscreenFull $ layoutHook defaultConfig
 
 myLogHook xmproc = dynamicLogWithPP xmobarPP
                     { ppOutput = hPutStrLn xmproc
