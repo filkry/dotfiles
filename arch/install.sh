@@ -1,7 +1,14 @@
 sudo pacman -Sy
-sudo pacman -S --noconfirm --needed base base-devel xorg-server xorg-server-utils xorg-xinit xmonad xmonad-contrib chromium firefox dmenu wget vim rxvt-unicode unzip terminus-font ruby encfs openssh qt4 evince rsync xmobar trayer alsa-utils xmobar pulseaudio pavucontrol udiskie xcompmgr
+sudo pacman -S --noconfirm --needed base base-devel xorg-server xorg-server-utils xorg-xinit chromium wget vim rxvt-unicode unzip terminus-font ruby encfs openssh evince rsync udiskie 
 
-sudo pacman -S --noconfirm --needed pulseaudio pavucontrol
+# xmonad
+sudo pacman -S --noconfirm --needed xmonad xmonad-contrib dmenu xmobar trayer xcompmgr
+
+# gnome/gdm
+sudo pacman -S --noconfirm --needed gnome gdm
+
+# pulseaudio
+sudo pacman -S --noconfirm --needed pulseaudio pavucontrol alsa-utils
 
 # This causes troubles sometimes, so keep it separate
 sudo pacman -S --noconfirm --needed virtualbox
