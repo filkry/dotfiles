@@ -18,7 +18,7 @@ dropboxd &
 udiskie --tray &
 
 # Depending on WM
-case $1 in
+case $2 in
     xfce) exec startxfce4 ;;
     *)
         trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --widthtype percent --width 10 --height 12 --tint 0x000000 --transparent true --alpha 0 &
