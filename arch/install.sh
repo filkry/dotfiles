@@ -4,8 +4,8 @@ sudo pacman -S --noconfirm --needed base base-devel xorg-server xorg-server-util
 # xmonad
 sudo pacman -S --noconfirm --needed xmonad xmonad-contrib dmenu xmobar trayer xcompmgr
 
-# gnome/gdm
-sudo pacman -S --noconfirm --needed gnome gdm
+# xfce
+sudo pacman -S --noconfirm --needed xfce4
 
 # pulseaudio
 sudo pacman -S --noconfirm --needed pulseaudio pavucontrol alsa-utils
