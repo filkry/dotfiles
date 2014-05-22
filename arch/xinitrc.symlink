@@ -14,6 +14,7 @@ pulseaudio --start
 pasystray &
 
 dropboxd &
+SpiderOak &
 
 udiskie --tray &
 
@@ -23,7 +24,7 @@ case $2 in
     *)
         trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --widthtype percent --width 10 --height 12 --tint 0x000000 --transparent true --alpha 0 &
         xcompmgr -n &
-        feh --bg-fill ~/Dropbox/wallpaper/close_fields-wide.jpg
+        feh --randomize --bg-fill ~/SpiderOak\ Hive/img/wallpaper/*
         exec xmonad
     ;;
 esac
